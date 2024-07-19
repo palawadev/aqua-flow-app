@@ -7,4 +7,5 @@ export interface Auth {
       name: string;
       email: string;
       avatar: string;
+      avatar1: string;
 }
