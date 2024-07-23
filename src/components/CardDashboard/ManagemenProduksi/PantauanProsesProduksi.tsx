@@ -16,12 +16,12 @@ const PantauanProsesProduksi: React.FC = () => {
           <h3 className="text-sm font-medium mb-2">Produksi Bulanan</h3>
           <GroupedBarchart />
         </div>
-        <div className="p-4 border rounded-xl flex">
+        <div className="p-4 border rounded-xl flex items-center">
           <div className="flex-grow">
             <h3 className="text-sm font-medium mb-2">Rata-rata Produksi</h3>
             <Donutchart />
           </div>
-          <div className="ml-4 flex flex-col justify-center text-xs">
+          <div className=" flex flex-col justify-center text-xs">
             <p>Tanggal: 17/7/2024</p>
             <p>Waktu: 14:10:23</p>
           </div>

@@ -33,17 +33,18 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navbar() {
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-xl z-999">
+    <nav className="bg-white border-b border-gray-200 shadow-xl z-11">
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
         <div className="flex items-center">
           <Link href="/">
-            <div className="flex items-center">
+            <div className="flex items-center p-4">
               <Image
+                priority
                 src="/logo/Logo.png"
                 alt="Logo"
-                width={160}
-                height={80}
-                className="h-auto"
+                width={150}
+                height={50}
+                style={{ width: "auto", height: "45px" }}
               />
             </div>
           </Link>
@@ -130,7 +131,10 @@ export function Navbar() {
           </Link>
           <div className="relative">
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarImage
+                src="https://avatars.githubusercontent.com/u/100395127?s=100&v=4"
+                alt="@shadcn"
+              />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </div>

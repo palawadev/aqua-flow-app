@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface Produk {
@@ -22,12 +23,10 @@ const ProdukItem: React.FC<ProdukItemProps> = ({ image, title, products }) => {
           Lihat Detail
         </button>
       </div>
-      <div className="flex">
-        <img
-          src={image}
-          alt={title}
-          className="w-40 h-40 object-cover rounded-lg mr-4"
-        />
+      <div className="flex object-cover rounded-lg mr-4">
+        <div className="mr-4">
+          <Image src={image} alt={title} width={210} height={0} />
+        </div>
         <div className="flex-1">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {products.map((product) => (

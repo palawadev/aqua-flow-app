@@ -14,6 +14,7 @@ import chartIcon from "@iconify/icons-ion/stats-chart-outline";
 import menuIcon from "@iconify/icons-ion/menu-outline";
 import paperplane from "@iconify/icons-ion/paper-plane-outline";
 import logoutIcon from "@iconify/icons-ion/log-out-outline";
+import searchIcon from "@iconify/icons-ion/search-outline";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -21,13 +22,12 @@ import Image from "next/image";
 
 const Dashboardnav: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
-
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -100,18 +100,20 @@ const Dashboardnav: React.FC = () => {
         <Icon icon={menuIcon} />
       </button>
       <nav
-        className={`fixed border border-gray-300 top-0 left-0 bg-white h-screen shadow-lg z-40 transition-width duration-300 ${
-          isOpen ? "w-60" : "w-16"
-        } lg:w-60 flex flex-col`}
+        className={`fixed border border-gray-300 top-0 left-0 bg-white h-screen shadow-lg z-40 transition-transform duration-300 transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } lg:translate-x-0 lg:w-60 flex flex-col`}
       >
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center justify-between p-10">
           <Link href="/">
             <Image
-              className={`w-fit ${isOpen ? "block" : "hidden"} lg:block`}
-              src="/logo/Logo.png"
+              priority
+              src="/logo/LogoDashboard.png"
               alt="Logo"
-              width={200}
+              width={150}
               height={50}
+              style={{ width: "auto", height: "45px" }}
+              className={`w-fit ${isOpen ? "block" : "hidden"} lg:block`}
             />
           </Link>
           <button
@@ -165,13 +167,12 @@ const Dashboardnav: React.FC = () => {
       </nav>
       <main
         className={`flex-1 ml-0 ${
-          isOpen ? "ml-60" : "ml-16"
+          isOpen ? "lg:ml-60" : "ml-0"
         } transition-margin duration-300`}
       ></main>
-      {/* Searchbar Component */}
-      <nav className="bg-white border border-gray-300 shadow-xl rounded-md fixed top-4 left-4 right-4 ml-64 z-10">
-        <div className="container mx-auto px-4 flex justify-between items-center h-32">
-          <div className="text-start text-3xl font-semibold">
+      <nav className="bg-white border border-gray-300 shadow-xl rounded-md fixed top-4 left-4 right-4 lg:ml-64 z-10">
+        <div className="container mx-auto px-4 flex justify-between items-center h-[120px]">
+          <div className="text-start text-3xl font-semibold lg:text-2xl md:text-xl">
             <h1>{getCurrentPageLabel()}</h1>
           </div>
           <div className="hidden md:flex flex-grow justify-center">
@@ -212,7 +213,7 @@ const Dashboardnav: React.FC = () => {
               <div onClick={() => {}}>
                 <Avatar>
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
+                    src="https://avatars.githubusercontent.com/u/100395127?s=100&v=4"
                     alt="@shadcn"
                   />
                   <AvatarFallback>CN</AvatarFallback>
@@ -220,7 +221,10 @@ const Dashboardnav: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-4">
+            <button className="text-gray-600 hover:text-gray-800">
+              <Icon icon={searchIcon} />
+            </button>
             <button
               onClick={toggleMenu}
               className="text-gray-600 hover:text-gray-800"

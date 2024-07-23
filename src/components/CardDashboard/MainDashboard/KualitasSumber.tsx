@@ -1,79 +1,87 @@
 import React from "react";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
-const KualitasSumber: React.FC = () => {
+const KualitasTangki: React.FC = () => {
   return (
     <div className="p-4 shadow-md border-2 rounded-xl">
       <h3 className="text-xl font-semibold mb-4">Kualitas Air (Sumber)</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="p-4 border rounded-xl flex flex-col justify-between">
           <div className="flex items-center">
-            <img
-              src="\logo\PH.png"
-              alt="ph"
-              className="w-16 h-16 object-cover rounded-xl"
-            />
+            <Image src="/logo/PH.png" alt="ph" width={52} height={52} />
             <div className="ml-4">
               <h4 className="text-lg font-semibold">PH (Derajat Keasaman)</h4>
-              <p className="text-sm text-gray-600">
+              <p className="text-xs text-gray-600">
                 PH adalah ukuran tingkat keasaman
               </p>
             </div>
           </div>
-          <div className="text-center mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-            <p className="text-xl font-semibold bg-sky-100 rounded-xl p-2">
-              350 PPM
-            </p>
-            <div className="bg-sky-100 rounded-xl p-2 flex items-center justify-center">
-              <p className="text-green-500 font-semibold">Optimal</p>
+          <div className="text-center mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 w-fit mx-auto">
+            <div className="flex items-center justify-center">
+              <Badge className="text-black font-semibold bg-sky-100">
+                350 PPM
+              </Badge>
+            </div>
+            <div className="flex items-center justify-center">
+              <Badge className=" font-semibold bg-sky-100 text-green-500">
+                Optimal
+              </Badge>
             </div>
           </div>
         </div>
         <div className="p-4 border rounded-xl flex flex-col justify-between">
           <div className="flex items-center">
-            <img
-              src="\logo\TDS.png"
-              alt="TDS"
-              className="w-16 h-16 object-cover rounded-xl"
-            />
+            <Image src="/logo/TDS.png" alt="TDS" width={52} height={52} />
             <div className="ml-4">
               <h4 className="text-lg font-semibold">
                 TDS (Total Dissolved Solids)
               </h4>
-              <p className="text-sm text-gray-600">
+              <p className="text-xs text-gray-600">
                 TDS merupakan partikel kecil yang terlarut dalam air
               </p>
             </div>
           </div>
-          <div className="text-center mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-            <p className="text-xl font-semibold bg-sky-100 rounded-xl p-2">
-              350 PPM
-            </p>
-            <div className="bg-sky-100 rounded-xl p-2 flex items-center justify-center">
-              <p className="text-green-500 font-semibold">Optimal</p>
+          <div className="text-center mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 w-fit mx-auto">
+            <div className="flex items-center justify-center">
+              <Badge className="text-black font-semibold bg-sky-100">
+                350 PPM
+              </Badge>
+            </div>
+            <div className="flex items-center justify-center">
+              <Badge className=" font-semibold bg-sky-100 text-green-500">
+                Optimal
+              </Badge>
             </div>
           </div>
         </div>
         <div className="p-4 border rounded-xl flex flex-col justify-between col-span-1 md:col-span-2">
           <div className="flex items-center">
-            <img
-              src="\logo\Turbidity.png"
+            <Image
+              src="/logo/Turbidity.png"
               alt="AMDK"
-              className="w-fit h-16 object-cover rounded-xl"
+              width={52}
+              height={52}
+              style={{ width: "auto", height: "auto" }}
             />
             <div className="ml-4">
               <h4 className="text-lg font-semibold">Kekeruhan (Turbidity)</h4>
-              <p className="text-sm text-gray-600">
+              <p className="text-xs text-gray-600">
                 Kekeruhan mengukur tingkat kejernihan air, semakin kecil angka
                 semakin jernih air.
               </p>
             </div>
           </div>
-          <div className="text-center mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-            <p className="text-xl font-semibold bg-sky-100 rounded-xl p-2">
-              0.5 NTU
-            </p>
-            <div className="bg-sky-100 rounded-xl p-2 flex items-center justify-center">
-              <p className="text-green-500 font-semibold">Jernih</p>
+          <div className="text-center mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 w-fit mx-auto">
+            <div className="flex items-center justify-center">
+              <Badge className="text-black font-semibold bg-sky-100">
+                0.5 NTU
+              </Badge>
+            </div>
+            <div className="flex items-center justify-center">
+              <Badge className=" font-semibold bg-sky-100 text-green-500">
+                Jernih
+              </Badge>
             </div>
           </div>
         </div>
@@ -82,4 +90,4 @@ const KualitasSumber: React.FC = () => {
   );
 };
 
-export default KualitasSumber;
+export default KualitasTangki;

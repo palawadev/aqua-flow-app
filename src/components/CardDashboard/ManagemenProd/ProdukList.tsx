@@ -29,17 +29,17 @@ const ProdukList: React.FC = () => {
   return (
     <div>
       <ProdukItem
-        image="\produk\Tangki Air.png"
+        image="/produk/Tangki Air.png"
         title="Pengisian Tangki Air"
         products={productsData}
       />
       <ProdukItem
-        image="\produk\AMDK.png"
+        image="/produk/AMDK.png"
         title="Air Minum Dalam Kemasan"
         products={productsData}
       />
       <ProdukItem
-        image="\produk\Air Rumah.png"
+        image="/produk/Air Rumah.png"
         title="Air Rumah"
         products={productsData}
       />

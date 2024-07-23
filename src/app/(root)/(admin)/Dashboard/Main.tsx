@@ -19,8 +19,8 @@ const Main: React.FC = () => {
         <div className="col-span-1 md:col-span-2">
           <UserAktif />
         </div>
-        <StatusIoT />
         <TransaksiTerbaru />
+        <StatusIoT />
       </div>
     </div>
   );
