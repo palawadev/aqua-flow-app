@@ -6,6 +6,7 @@ import chartIcon from "@iconify-icons/mdi/chart-bar";
 import detailsIcon from "@iconify-icons/mdi/clipboard-list";
 
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const Data = [
   {
@@ -36,7 +37,7 @@ const Data = [
 
 const DataCustomerCard: React.FC = () => {
   return (
-    <div className="p-6 shadow-md border rounded-xl bg-white max-w-4xl w-full mx-auto">
+    <Card className="p-6 shadow-md border rounded-xl bg-white max-w-4xl w-full mx-auto">
       <h2 className="text-black font-semibold text-2xl mb-4">Data Transaksi</h2>
       <div className="space-y-4">
         {Data.map((item, index) => (
@@ -54,7 +55,7 @@ const DataCustomerCard: React.FC = () => {
           </div>
         ))}
       </div>
-    </div>
+    </Card>
   );
 };
 
