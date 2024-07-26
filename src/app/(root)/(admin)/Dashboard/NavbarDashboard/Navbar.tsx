@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import { Icon } from "@iconify/react";
 import dashboardIcon from "@iconify/icons-ion/grid-outline";
 import productIcon from "@iconify/icons-ion/bag-outline";
@@ -17,10 +18,11 @@ import logoutIcon from "@iconify/icons-ion/log-out-outline";
 import searchIcon from "@iconify/icons-ion/search-outline";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
+import { ModeToggle } from "@/components/ui/ModeToggle";
 
 const Dashboardnav: React.FC = () => {
+  const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -84,6 +86,16 @@ const Dashboardnav: React.FC = () => {
       label: "Management Distribusi",
     },
     { href: "/Dashboard/DataReport", icon: chartIcon, label: "Data Reporting" },
+    {
+      href: "/Dashboard/Settings",
+      icon: cogsIcon,
+      label: "Settings",
+    },
+    {
+      href: "/",
+      icon: logoutIcon,
+      label: "Logout",
+    },
   ];
 
   const getCurrentPageLabel = () => {
@@ -92,15 +104,19 @@ const Dashboardnav: React.FC = () => {
   };
 
   return (
-    <div className="flex">
+    <div className={`flex ${theme === "dark" ? "bg-slate-950" : "bg-white"}`}>
       <button
-        className="fixed top-4 left-4 z-50 p-2 bg-blue-500 text-white rounded-md lg:hidden"
+        className={`fixed top-4 left-4 z-50 p-2 ${
+          theme === "dark" ? "bg-gray-800 text-white" : "bg-blue-500 text-white"
+        } rounded-md lg:hidden`}
         onClick={toggleSidebar}
       >
         <Icon icon={menuIcon} />
       </button>
       <nav
-        className={`fixed border border-gray-300 top-0 left-0 bg-white h-screen shadow-lg z-40 transition-transform duration-300 transform ${
+        className={`fixed border border-gray-300 top-0 left-0 ${
+          theme === "dark" ? "bg-gray-800" : "bg-white"
+        } h-screen shadow-lg z-40 transition-transform duration-300 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:w-60 flex flex-col`}
       >
@@ -125,7 +141,7 @@ const Dashboardnav: React.FC = () => {
           <ul>
             {menuItems.map((item) => (
               <li
-                key={item.href}
+                key={item.label}
                 className={`flex items-center p-4 ${
                   pathname === item.href ? "text-blue-500" : ""
                 }`}
@@ -140,38 +156,21 @@ const Dashboardnav: React.FC = () => {
             ))}
           </ul>
         </ScrollArea>
-        <div>
-          <div className="p-4">
-            <button
-              className="flex items-center p-2 w-full text-left"
-              onClick={() => console.log("Settings clicked")}
-            >
-              <Icon icon={cogsIcon} className="mr-2" />
-              <span className={`${isOpen ? "block" : "hidden"} lg:block`}>
-                Settings
-              </span>
-            </button>
-          </div>
-          <div className="p-4">
-            <button
-              className="flex items-center p-2 w-full text-left"
-              onClick={() => console.log("Logout clicked")}
-            >
-              <Icon icon={logoutIcon} className="mr-2" />
-              <span className={`${isOpen ? "block" : "hidden"} lg:block`}>
-                Logout
-              </span>
-            </button>
-          </div>
-        </div>
       </nav>
       <main
         className={`flex-1 ml-0 ${
           isOpen ? "lg:ml-60" : "ml-0"
-        } transition-margin duration-300`}
+        } transition-margin duration-300 ${
+          theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
+        }`}
       ></main>
-      <nav className="bg-white border border-gray-300 shadow-xl rounded-md fixed top-4 left-4 right-4 lg:ml-64 z-10">
-        <div className="container mx-auto px-4 flex justify-between items-center h-[120px]">
+
+      <nav
+        className={`border border-gray-300 shadow-xl rounded-md fixed top-4 left-4 right-4 lg:ml-64 z-10 ${
+          theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
+        }`}
+      >
+        <div className="container mx-auto px-[2rem] flex justify-between items-center h-[120px]">
           <div className="text-start text-3xl font-semibold lg:text-2xl md:text-xl">
             <h1>{getCurrentPageLabel()}</h1>
           </div>
@@ -181,53 +180,60 @@ const Dashboardnav: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="px-3 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:border-blue-500"
+                  className={`px-3 py-2 border rounded-3xl focus:outline-none ${
+                    theme === "dark"
+                      ? "bg-gray-700 border-gray-600 text-white focus:border-blue-500"
+                      : "border-gray-300 focus:border-blue-500"
+                  }`}
                 />
               </form>
             </div>
           </div>
           <div className="ml-auto hidden md:flex items-center space-x-4">
-            <button className="text-gray-600 hover:text-gray-800">
-              <div onClick={() => {}}>
-                <Image
-                  className="h-8"
-                  src="/bell.png"
-                  alt="Notifications"
-                  width={32}
-                  height={32}
-                />
-              </div>
-            </button>
-            <button className="text-gray-600 hover:text-gray-800">
-              <div onClick={() => {}}>
-                <Image
-                  className="h-9"
-                  src="/settings.png"
-                  alt="Settings"
-                  width={36}
-                  height={36}
-                />
-              </div>
-            </button>
-            <div className="relative">
-              <div onClick={() => {}}>
-                <Avatar>
-                  <AvatarImage
-                    src="https://avatars.githubusercontent.com/u/100395127?s=100&v=4"
-                    alt="@shadcn"
+            <Link href="/">
+              <button
+                className={`${
+                  theme === "dark"
+                    ? "text-gray-300 hover:text-white"
+                    : "text-gray-600 hover:text-gray-800"
+                }`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2em"
+                  height="2em"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                    d="M427.68 351.43C402 320 383.87 304 383.87 217.35C383.87 138 343.35 109.73 310 96c-4.43-1.82-8.6-6-9.95-10.55C294.2 65.54 277.8 48 256 48s-38.21 17.55-44 37.47c-1.35 4.6-5.52 8.71-9.95 10.53c-33.39 13.75-73.87 41.92-73.87 121.35C128.13 304 110 320 84.32 351.43C73.68 364.45 83 384 101.61 384h308.88c18.51 0 27.77-19.61 17.19-32.57M320 384v16a64 64 0 0 1-128 0v-16"
                   />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-              </div>
-            </div>
+                </svg>
+              </button>
+            </Link>
+            <ModeToggle />
           </div>
           <div className="md:hidden flex items-center space-x-4">
-            <button className="text-gray-600 hover:text-gray-800">
+            <button
+              className={`${
+                theme === "dark"
+                  ? "text-gray-300 hover:text-white"
+                  : "text-gray-600 hover:text-gray-800"
+              }`}
+            >
               <Icon icon={searchIcon} />
             </button>
             <button
               onClick={toggleMenu}
-              className="text-gray-600 hover:text-gray-800"
+              className={`${
+                theme === "dark"
+                  ? "text-gray-300 hover:text-white"
+                  : "text-gray-600 hover:text-gray-800"
+              }`}
             >
               <svg
                 className="h-6 w-6"
@@ -246,54 +252,6 @@ const Dashboardnav: React.FC = () => {
             </button>
           </div>
         </div>
-        {menuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 menu">
-              <form className="relative">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-                />
-              </form>
-              <div className="mt-4 flex items-center space-x-4">
-                <button className="text-gray-600 hover:text-gray-800">
-                  <div onClick={() => {}}>
-                    <Image
-                      className="h-8"
-                      src="/bell.png"
-                      alt="Notifications"
-                      width={32}
-                      height={32}
-                    />
-                  </div>
-                </button>
-                <button className="text-gray-600 hover:text-gray-800">
-                  <div onClick={() => {}}>
-                    <Image
-                      className="h-9"
-                      src="/settings.png"
-                      alt="Settings"
-                      width={36}
-                      height={36}
-                    />
-                  </div>
-                </button>
-                <div className="relative">
-                  <div onClick={() => {}}>
-                    <Avatar>
-                      <AvatarImage
-                        src="https://github.com/shadcn.png"
-                        alt="@shadcn"
-                      />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </nav>
     </div>
   );

@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Water Management System",
   description: "BARMA Technology Water Management System",
-  icons: {icon: "/next.svg"}
+  icons: { icon: "/next.svg" },
 };
 
 export default function RootLayout({
