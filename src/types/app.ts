@@ -5,3 +5,9 @@ export interface User {
 }
 
 // export another types or interface below
+export interface productItems {
+      id: number;
+      title: string;
+      price: string;
+      description: string;
+    }

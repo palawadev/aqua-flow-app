@@ -9,3 +9,8 @@ export interface Auth {
       avatar: string;
       avatar1: string;
 }
+
+export type DataType = {
+      categories: any[];
+      tangkiProducts: any[];
+}

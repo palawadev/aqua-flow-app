@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 interface Produk {
   id: number;
@@ -15,6 +14,7 @@ interface ProdukItemProps {
 }
 
 const ProdukItem: React.FC<ProdukItemProps> = ({ image, title, products }) => {
+  
   return (
     <div className="border p-6 rounded-lg shadow-md my-4 bg-white">
       <div className="flex justify-between items-center mb-4">
@@ -39,6 +39,7 @@ const ProdukItem: React.FC<ProdukItemProps> = ({ image, title, products }) => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
