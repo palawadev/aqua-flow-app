@@ -1,18 +1,12 @@
 "use client";
-
-import SettingsNavigation from "@/components/CardDashboard/SettingsCard/SettingsNav";
-import React, { useState } from "react";
+import Settings from "@/app/(root)/(admin)/Dashboard/Settings/Settings";
+import React from "react";
 
 const Page: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState("Preferences");
-
   return (
-    <div className="sm:md-5 md:ml-10 lg:ml-60">
-      <div className="mt-[160px] ml-8">
-        <SettingsNavigation
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+    <div className="sm:ml-5 md:ml-5 lg:ml-5">
+      <div className="mt-[160px] ">
+        <Settings />
       </div>
     </div>
   );

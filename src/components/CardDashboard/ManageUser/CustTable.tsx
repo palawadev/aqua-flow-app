@@ -26,7 +26,7 @@ const employees = [
 
 export function CustTable() {
   return (
-    <div className="p-6 shadow-md border rounded-xl bg-white  w-full mx-auto mt-8">
+    <div className="p-6 shadow-md border rounded-xl   w-full mx-auto mt-8">
       <div className="flex items-center mb-4">
         <div className="relative w-full md:w-1/3 ">
           <input
@@ -95,7 +95,7 @@ export function CustTable() {
             </TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody className="bg-white divide-y divide-gray-200">
+        <TableBody className=" divide-y divide-gray-200">
           {employees.map((employee, index) => (
             <TableRow key={index} className="hover:bg-gray-100">
               <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

@@ -8,7 +8,7 @@ const Layanan: React.FC = () => {
       <h2 className="text-2xl font-semibold mb-4 text-center mt-16">
         Layanan Kami
       </h2>
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-start text-left text-black px-8 mt-8">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-start text-left  px-8 mt-8">
         <div
           className="relative w-full md:w-1/2 mt-4 md:mt-0 md:mr-8"
           style={{ height: "400px" }}

@@ -26,7 +26,7 @@ const SettingsNavigation: React.FC<SettingsNavigationProps> = ({
   ];
 
   return (
-    <Card className="w-1/4">
+    <Card className="w-1/4 bg-white dark:bg-gray-800">
       <CardContent>
         <ul className="space-y-2 pt-6">
           {navItems.map((item) => (
@@ -34,8 +34,9 @@ const SettingsNavigation: React.FC<SettingsNavigationProps> = ({
               <Button
                 variant="default"
                 className={cn(
-                  "w-full text-left flex items-center px-4 py-2 bg-transparent text-black",
-                  currentPage === item.name && "bg-sky-500 text-white"
+                  "w-full text-left flex items-center px-4 py-2 bg-transparent text-black dark:text-white",
+                  currentPage === item.name &&
+                    "bg-sky-500 text-white dark:bg-sky-700"
                 )}
                 onClick={() => setCurrentPage(item.name)}
               >
