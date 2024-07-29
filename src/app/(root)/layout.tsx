@@ -7,9 +7,9 @@ import { ThemeProvider } from "@/app/(root)/(providers)/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Water Management System",
-  description: "BARMA Technology Water Management System",
-  icons: { icon: "/next.svg" },
+      title: "Water Management System",
+      description: "BARMA Technology Water Management System",
+      icons: {icon: "/logo/Logowhite.png"}
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

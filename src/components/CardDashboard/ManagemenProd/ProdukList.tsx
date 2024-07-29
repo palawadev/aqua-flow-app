@@ -1,5 +1,9 @@
-import React from "react";
+"use client"
+import React, { useContext } from "react";
 import ProdukItem from "./ProdukItem";
+import { WmsContext } from "../../../../context/dataContext";
+import { productItems } from "@/types/app";
+
 
 const productsData = [
   {
@@ -26,12 +30,20 @@ const productsData = [
 ];
 
 const ProdukList: React.FC = () => {
+  
+  const {tangkiProducts} = useContext(WmsContext)
+  const data: productItems[] = tangkiProducts.map(tp => ({
+    id: tp.data.id,
+    title: tp.data.name,
+    price: "50.000Rp", // Assign a price if not available in your data
+    description: tp.data.categoryId,
+  }));
   return (
     <div>
       <ProdukItem
         image="/produk/Tangki Air.png"
         title="Pengisian Tangki Air"
-        products={productsData}
+        products={data}
       />
       <ProdukItem
         image="/produk/AMDK.png"
@@ -48,6 +60,7 @@ const ProdukList: React.FC = () => {
           <span className="mr-2 text-xl">+</span> Tambah Produk
         </button>
       </div>
+
     </div>
   );
 };
