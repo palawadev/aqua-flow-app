@@ -36,8 +36,8 @@ const Data = [
 
 const DataKualitasAir: React.FC = () => {
   return (
-    <div className="p-6 shadow-md border rounded-xl bg-white max-w-4xl w-full mx-auto">
-      <h2 className="text-black font-semibold text-2xl mb-4">Data Transaksi</h2>
+    <div className="p-6 shadow-md border rounded-xl  max-w-4xl w-full mx-auto">
+      <h2 className=" font-semibold text-2xl mb-4">Data Transaksi</h2>
       <div className="space-y-4">
         {Data.map((item, index) => (
           <div

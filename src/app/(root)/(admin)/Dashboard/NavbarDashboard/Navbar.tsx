@@ -114,7 +114,7 @@ const Dashboardnav: React.FC = () => {
         <Icon icon={menuIcon} />
       </button>
       <nav
-        className={`fixed border border-gray-300 top-0 left-0 ${
+        className={`fixed border-r border-gray-700/30 top-0 left-0 ${
           theme === "dark" ? "bg-gray-800" : "bg-white"
         } h-screen shadow-lg z-40 transition-transform duration-300 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -166,7 +166,7 @@ const Dashboardnav: React.FC = () => {
       ></main>
 
       <nav
-        className={`border border-gray-300 shadow-xl rounded-md fixed top-4 left-4 right-4 lg:ml-64 z-10 ${
+        className={`border border-gray-700/30 shadow-xl rounded-md fixed top-4 left-4 right-4 lg:ml-64 z-10 ${
           theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
         }`}
       >

@@ -8,7 +8,7 @@ const Tentang: React.FC = () => {
       <h2 className="text-2xl font-semibold mb-4 text-center mt-16">
         Tentang Kami
       </h2>
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-start text-left text-black px-8 mt-8">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-start text-left  px-8 mt-8">
         <div className="md:w-1/2">
           <p className="mb-4">
             Kami adalah perusahaan yang berkomitmen untuk menyediakan solusi
