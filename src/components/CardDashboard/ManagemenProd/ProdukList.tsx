@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import React, { useContext } from "react";
 import ProdukItem from "./ProdukItem";
 import { WmsContext } from "../../../../context/dataContext";
 import { productItems } from "@/types/app";
-
+import { Button } from "@/components/ui/button";
 
 const productsData = [
   {
@@ -30,9 +30,8 @@ const productsData = [
 ];
 
 const ProdukList: React.FC = () => {
-  
-  const {tangkiProducts} = useContext(WmsContext)
-  const data: productItems[] = tangkiProducts.map(tp => ({
+  const { tangkiProducts } = useContext(WmsContext);
+  const data: productItems[] = tangkiProducts.map((tp) => ({
     id: tp.data.id,
     title: tp.data.name,
     price: "50.000Rp", // Assign a price if not available in your data
@@ -56,11 +55,10 @@ const ProdukList: React.FC = () => {
         products={productsData}
       />
       <div className="flex justify-center mt-8">
-        <button className="flex items-center justify-center border-dashed border-2 border-blue-500 text-blue-500 px-4 py-2 rounded-md hover:bg-blue-50">
+        <Button className="flex items-center justify-center border-dashed border-2 border-blue-500 text-blue-500 px-4 py-2 rounded-md bg-transparent hover:opacity-50 hover:bg-transparent">
           <span className="mr-2 text-xl">+</span> Tambah Produk
-        </button>
+        </Button>
       </div>
-
     </div>
   );
 };

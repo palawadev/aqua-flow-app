@@ -14,6 +14,7 @@ const Layanan: React.FC = () => {
           style={{ height: "400px" }}
         >
           <Image
+            priority
             src="/hero/Layanan.png"
             alt="Tentang Kami"
             fill

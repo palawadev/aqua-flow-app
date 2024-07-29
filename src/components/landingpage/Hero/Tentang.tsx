@@ -30,13 +30,13 @@ const Tentang: React.FC = () => {
           style={{ height: "400px" }}
         >
           <Image
+            priority
             src="/hero/tentangkami.png"
             alt="Tentang Kami"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: "cover" }}
             className="rounded-xl"
-            priority
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

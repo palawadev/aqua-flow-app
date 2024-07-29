@@ -22,7 +22,7 @@ import Image from "next/image";
 import { ModeToggle } from "@/components/ui/ModeToggle";
 
 const Dashboardnav: React.FC = () => {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -103,32 +103,35 @@ const Dashboardnav: React.FC = () => {
     return currentItem ? currentItem.label : "Main Dashboard";
   };
 
+  const logoSrc =
+    theme === "dark"
+      ? "/logo/Logo-Dark.png"
+      : theme === "light"
+      ? "/logo/Logo-Light.png"
+      : "/logo/Logo-Dark.png";
+
   return (
-    <div className={`flex ${theme === "dark" ? "bg-slate-950" : "bg-white"}`}>
+    <div className="flex dark:bg-slate-950 bg-white">
       <button
-        className={`fixed top-4 left-4 z-50 p-2 ${
-          theme === "dark" ? "bg-gray-800 text-white" : "bg-blue-500 text-white"
-        } rounded-md lg:hidden`}
+        className="fixed top-4 left-4 z-50 p-2 dark:bg-gray-800 dark:text-white bg-blue-500 text-white rounded-md lg:hidden"
         onClick={toggleSidebar}
       >
         <Icon icon={menuIcon} />
       </button>
       <nav
-        className={`fixed border-r border-gray-700/30 top-0 left-0 ${
-          theme === "dark" ? "bg-gray-800" : "bg-white"
-        } h-screen shadow-lg z-40 transition-transform duration-300 transform ${
+        className={`fixed border-r border-gray-700/30 top-0 left-0 dark:bg-gray-800 bg-white h-screen shadow-lg z-40 transition-transform duration-300 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:w-60 flex flex-col`}
       >
-        <div className="flex items-center justify-between p-10">
+        <div className="flex items-center justify-between p-8">
           <Link href="/">
             <Image
               priority
-              src="/logo/LogoDashboard.png"
+              src={logoSrc}
               alt="Logo"
               width={150}
               height={50}
-              style={{ width: "auto", height: "45px" }}
+              style={{ width: "200px", height: "auto" }}
               className={`w-fit ${isOpen ? "block" : "hidden"} lg:block`}
             />
           </Link>
@@ -165,11 +168,7 @@ const Dashboardnav: React.FC = () => {
         }`}
       ></main>
 
-      <nav
-        className={`border border-gray-700/30 shadow-xl rounded-md fixed top-4 left-4 right-4 lg:ml-64 z-10 ${
-          theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
-        }`}
-      >
+      <nav className="border border-gray-700/30 shadow-xl rounded-md fixed top-4 left-4 right-4 lg:ml-64 z-10 bg-white text-black dark:bg-gray-800 dark:text-white">
         <div className="container mx-auto px-[2rem] flex justify-between items-center h-[120px]">
           <div className="text-start text-3xl font-semibold lg:text-2xl md:text-xl">
             <h1>{getCurrentPageLabel()}</h1>
@@ -180,24 +179,14 @@ const Dashboardnav: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Search..."
-                  className={`px-3 py-2 border rounded-3xl focus:outline-none ${
-                    theme === "dark"
-                      ? "bg-gray-700 border-gray-600 text-white focus:border-blue-500"
-                      : "border-gray-300 focus:border-blue-500"
-                  }`}
+                  className="px-3 py-2 border rounded-3xl focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 border-gray-300 focus:border-blue-500"
                 />
               </form>
             </div>
           </div>
           <div className="ml-auto hidden md:flex items-center space-x-4">
             <Link href="/">
-              <button
-                className={`${
-                  theme === "dark"
-                    ? "text-gray-300 hover:text-white"
-                    : "text-gray-600 hover:text-gray-800"
-                }`}
-              >
+              <button className="dark:text-gray-300 dark:hover:text-whitetext-gray-600 hover:text-gray-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="2em"
@@ -218,23 +207,10 @@ const Dashboardnav: React.FC = () => {
             <ModeToggle />
           </div>
           <div className="md:hidden flex items-center space-x-4">
-            <button
-              className={`${
-                theme === "dark"
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-600 hover:text-gray-800"
-              }`}
-            >
+            <button className="dark:text-gray-300 dark:hover:text-whitetext-gray-600 hover:text-gray-800">
               <Icon icon={searchIcon} />
             </button>
-            <button
-              onClick={toggleMenu}
-              className={`${
-                theme === "dark"
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-600 hover:text-gray-800"
-              }`}
-            >
+            <button className="dark:text-gray-300 dark:hover:text-whitetext-gray-600 hover:text-gray-800">
               <svg
                 className="h-6 w-6"
                 fill="none"

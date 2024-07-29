@@ -36,23 +36,26 @@ const components: { title: string; href: string; description: string }[] = [
 export function Navbar() {
   const { theme, setTheme } = useTheme();
 
+  const logoSrc =
+    theme === "dark"
+      ? "/logo/Logo-Dark.png"
+      : theme === "light"
+      ? "/logo/Logo-Light.png"
+      : "/logo/Logo-Dark.png";
+
   return (
-    <nav
-      className={`bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-11`}
-    >
+    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-11">
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
         <div className="flex items-center">
           <Link href="/">
-            <div className="flex items-center p-4">
-              <Image
-                priority
-                src="/logo/Logo.png"
-                alt="Logo"
-                width={150}
-                height={50}
-                style={{ width: "auto", height: "45px" }}
-              />
-            </div>
+            <Image
+              priority
+              src={logoSrc}
+              alt="Logo"
+              width={150}
+              height={50}
+              style={{ width: "200px", height: "auto" }}
+            />
           </Link>
         </div>
         <div className="hidden md:flex flex-grow justify-center z-">
