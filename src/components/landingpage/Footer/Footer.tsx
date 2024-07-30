@@ -8,25 +8,25 @@ const Footer: React.FC = () => {
     <div className="bg-sky-500">
       <div className="px-4 md:px-16 lg:px-32">
         <div className="mt-16"></div>
-        <footer className="text-white py-8">
+        <footer className="text-white py-8 ">
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="col-span-12 md:col-span-4">
               <div className="flex-shrink-0 mb-8">
                 <Link href="/" className="flex items-center">
-                  <Image
-                    className="w-fit mr-2"
-                    src="/logo/Logowhite.png"
-                    alt="Logo"
-                    width={150}
-                    height={50}
-                  />
-                  <Image
-                    className="w-fit ml-2"
-                    src="/logo/Logotxtwhite.png"
-                    alt="Logo"
-                    width={150}
-                    height={50}
-                  />
+                  <div className="flex ">
+                    <Image
+                      priority
+                      src="/logo/logowhite.png"
+                      alt="Logo"
+                      width={150}
+                      height={50}
+                      style={{ width: "30px", height: "auto" }}
+                    />
+                    <span className="font-montserrat font-medium ml-5 text-xl">
+                      Water Management <br />
+                      Dashboard
+                    </span>
+                  </div>
                 </Link>
               </div>
               <p>
@@ -39,10 +39,10 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="col-span-6 md:col-span-3">
-              <h3 className="text-xl font-semibold mb-2 underline underline-offset-8">
+              <h3 className="text-xl font-semibold mb-2 underline underline-offset-8 ">
                 Produk
               </h3>
-              <ul className="list-disc list-outside">
+              <ul className="list-disc list-outside space-y-5 pt-5">
                 <li>Pengisian Tangki Air</li>
                 <li>Air Minum Dalam Kemasan</li>
                 <li>Air Rumah</li>
@@ -50,21 +50,21 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="col-span-6 md:col-span-3">
-              <h3 className="text-xl font-semibold mb-2 underline underline-offset-8">
+              <h3 className="text-xl font-semibold mb-2 underline underline-offset-8 ">
                 Service
               </h3>
-              <ul className="list-disc list-outside">
+              <ul className="list-disc list-outside space-y-5 pt-5">
                 <li>Otomisasi Pengisian Tangki Air</li>
                 <li>Pembelian Online</li>
               </ul>
             </div>
 
             <div className="col-span-12 md:col-span-2">
-              <h3 className="text-xl font-semibold mb-2 underline underline-offset-8">
+              <h3 className="text-xl font-semibold mb-2 underline underline-offset-8 ">
                 Social Media
               </h3>
-              <ul className="space-y-5 pt-2">
-                <li>
+              <ul className="space-y-9 pt-2">
+                <li className=" pt-2">
                   <Link href="#">
                     <Button className="bg-white w-[12em] hover:bg-white hover:opacity-55 rounded-lg">
                       <svg

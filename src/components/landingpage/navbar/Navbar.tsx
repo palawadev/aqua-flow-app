@@ -36,29 +36,28 @@ const components: { title: string; href: string; description: string }[] = [
 export function Navbar() {
   const { theme, setTheme } = useTheme();
 
-  const logoSrc =
-    theme === "dark"
-      ? "/logo/Logo-Dark.png"
-      : theme === "light"
-      ? "/logo/Logo-Light.png"
-      : "/logo/Logo-Dark.png";
-
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-11">
+    <nav className="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-700 shadow-xl z-11">
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
         <div className="flex items-center">
           <Link href="/">
-            <Image
-              priority
-              src={logoSrc}
-              alt="Logo"
-              width={150}
-              height={50}
-              style={{ width: "200px", height: "auto" }}
-            />
+            <div className="flex ">
+              <Image
+                priority
+                src="/logo/logowhite.png"
+                alt="Logo"
+                width={150}
+                height={50}
+                style={{ width: "25px", height: "auto" }}
+              />
+              <span className="font-montserrat font-medium ml-3">
+                Water Management <br />
+                Dashboard
+              </span>
+            </div>
           </Link>
         </div>
-        <div className="hidden md:flex flex-grow justify-center z-">
+        <div className="hidden md:flex flex-grow justify-center">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -155,9 +154,23 @@ export function Navbar() {
             <Avatar>
               <AvatarImage
                 src="https://avatars.githubusercontent.com/u/100395127?s=100&v=4"
-                alt="@shadcn"
+                alt="avatar"
               />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2em"
+                  height="2em"
+                  viewBox="0 0 15 15"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M7.5.875a3.625 3.625 0 0 0-1.006 7.109c-1.194.145-2.218.567-2.99 1.328c-.982.967-1.479 2.408-1.479 4.288a.475.475 0 1 0 .95 0c0-1.72.453-2.88 1.196-3.612c.744-.733 1.856-1.113 3.329-1.113s2.585.38 3.33 1.113c.742.733 1.195 1.892 1.195 3.612a.475.475 0 1 0 .95 0c0-1.88-.497-3.32-1.48-4.288c-.77-.76-1.795-1.183-2.989-1.328A3.627 3.627 0 0 0 7.5.875M4.825 4.5a2.675 2.675 0 1 1 5.35 0a2.675 2.675 0 0 1-5.35 0"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </AvatarFallback>
             </Avatar>
           </div>
         </div>

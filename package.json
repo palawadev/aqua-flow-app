@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/montserrat": "^5.0.18",
     "@iconify-icons/mdi": "^1.2.48",
     "@iconify/icons-ion": "^1.2.10",
     "@iconify/icons-mdi": "^1.2.48",

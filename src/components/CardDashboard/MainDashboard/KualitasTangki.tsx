@@ -12,7 +12,7 @@ const KualitasTangki: React.FC = () => {
             <Image src="/logo/PH.png" alt="ph" width={52} height={52} />
             <div className="ml-4">
               <h4 className="text-lg font-semibold">PH (Derajat Keasaman)</h4>
-              <p className="text-xs text-gray-600">
+              <p className="text-xs opacity-75">
                 PH adalah ukuran tingkat keasaman
               </p>
             </div>
@@ -37,7 +37,7 @@ const KualitasTangki: React.FC = () => {
               <h4 className="text-lg font-semibold">
                 TDS (Total Dissolved Solids)
               </h4>
-              <p className="text-xs text-gray-600">
+              <p className="text-xs opacity-75">
                 TDS merupakan partikel kecil yang terlarut dalam air
               </p>
             </div>
@@ -66,7 +66,7 @@ const KualitasTangki: React.FC = () => {
             />
             <div className="ml-4">
               <h4 className="text-lg font-semibold">Kekeruhan (Turbidity)</h4>
-              <p className="text-xs text-gray-600">
+              <p className="text-xs opacity-75">
                 Kekeruhan mengukur tingkat kejernihan air, semakin kecil angka
                 semakin jernih air.
               </p>

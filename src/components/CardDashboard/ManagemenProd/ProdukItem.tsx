@@ -14,7 +14,6 @@ interface ProdukItemProps {
 }
 
 const ProdukItem: React.FC<ProdukItemProps> = ({ image, title, products }) => {
-  
   return (
     <div className="border p-6 rounded-lg shadow-md my-4 ">
       <div className="flex justify-between items-center mb-4">
@@ -32,14 +31,13 @@ const ProdukItem: React.FC<ProdukItemProps> = ({ image, title, products }) => {
             {products.map((product) => (
               <div key={product.id} className="border p-4 rounded-lg shadow-md">
                 <h3 className="font-semibold mb-2">{product.title}</h3>
-                <p className="text-gray-700 mb-1">{product.price}</p>
-                <p className="text-gray-600 text-sm">{product.description}</p>
+                <p className="opacity-80 mb-1">{product.price}</p>
+                <p className="opacity-50 text-sm">{product.description}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

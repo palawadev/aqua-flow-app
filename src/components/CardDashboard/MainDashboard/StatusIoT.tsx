@@ -19,7 +19,7 @@ const StatusIoT: React.FC = () => {
           />
           <div className="mx-4">
             <h4 className="text-lg font-semibold">IoT Kualitas Air</h4>
-            <p className="text-xs text-gray-600 text-justify">
+            <p className="text-xs opacity-75 text-justify">
               Sensor ini mengukur kualitas air dari sumbernya, mencakup
               parameter seperti pH, TDS (Total Dissolved Solids), dan kekeruhan.
             </p>
@@ -41,7 +41,7 @@ const StatusIoT: React.FC = () => {
           />
           <div className="mx-4">
             <h4 className="text-lg font-semibold">IoT Debit Air</h4>
-            <p className="text-xs text-gray-600 text-justify ">
+            <p className="text-xs opacity-75 text-justify ">
               Sensor ini mengukur laju aliran air melalui pipa distribusi,
               memastikan bahwa debit air sesuai dengan kebutuhan dan pesanan
               pelanggan.
@@ -64,7 +64,7 @@ const StatusIoT: React.FC = () => {
           />
           <div className="mx-4">
             <h4 className="text-lg font-semibold">IoT Kapasitas Tangki Air</h4>
-            <p className="text-xs text-gray-600 text-justify">
+            <p className="text-xs opacity-75 text-justify">
               Sensor ini mengukur kapasitas air dalam tangki secara real-time,
               memberikan informasi tentang jumlah air yang tersedia dan membantu
               dalam pengelolaan distribusi air.

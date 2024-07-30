@@ -20,6 +20,7 @@ import searchIcon from "@iconify/icons-ion/search-outline";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 import { ModeToggle } from "@/components/ui/ModeToggle";
+import { Separator } from "@/components/ui/separator";
 
 const Dashboardnav: React.FC = () => {
   const { theme, setTheme } = useTheme();
@@ -103,13 +104,6 @@ const Dashboardnav: React.FC = () => {
     return currentItem ? currentItem.label : "Main Dashboard";
   };
 
-  const logoSrc =
-    theme === "dark"
-      ? "/logo/Logo-Dark.png"
-      : theme === "light"
-      ? "/logo/Logo-Light.png"
-      : "/logo/Logo-Dark.png";
-
   return (
     <div className="flex dark:bg-slate-950 bg-white">
       <button
@@ -125,16 +119,21 @@ const Dashboardnav: React.FC = () => {
       >
         <div className="flex items-center justify-between p-8">
           <Link href="/">
-            <Image
-              priority
-              src={logoSrc}
-              alt="Logo"
-              width={150}
-              height={50}
-              style={{ width: "200px", height: "auto" }}
-              className={`w-fit ${isOpen ? "block" : "hidden"} lg:block`}
-            />
+            <div className="flex ">
+              <Image
+                priority
+                src="/logo/logowhite.png"
+                alt="Logo"
+                width={150}
+                height={50}
+                style={{ width: "40px", height: "70px" }}
+              />
+              <span className="font-montserrat font-medium ml-3 text-md">
+                Water Management Dashboard
+              </span>
+            </div>
           </Link>
+
           <button
             className="lg:hidden text-blue-500"
             onClick={toggleSidebar}
