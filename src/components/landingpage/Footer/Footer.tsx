@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
                   <div className="flex ">
                     <Image
                       priority
-                      src="/logo/logowhite.png"
+                      src="/logo/Logowhite.png"
                       alt="Logo"
                       width={150}
                       height={50}
